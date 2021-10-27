@@ -5,7 +5,7 @@ import NavBar from '../NavBar/NavBar'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import About from '../About/About'
 import Error from '../Error/Error'
-import MovieSlider from '../MovieSlider/MovieSlider'
+import MovieSlider from '../Slider/Slider'
 import { Route, Switch } from 'react-router-dom'
 import { getAllMovies, getSingleMovie } from '../../apiCalls'
 
@@ -41,20 +41,25 @@ class App extends Component {
       return (
         <div className="search-results">
         <Movies movies={this.state.foundMovies} />
-        <button className="clear-button" onClick={() => this.clearSearch()}>CLEAR SEARCH</button>
+        <button className="clear-button" onClick={() => this.clearSearch()}>Clear Search</button>
         </div>
       )
     } else if (this.state.foundMovies.length === 0 && this.state.hasSearched === true) {
       return (
         <div className="error-search">
         <h2>It doesn't look like we've reviewed that movie, yet! Try another title.</h2>
-        <button className="clear-button" onClick={() => this.clearSearch()}>CLEAR SEARCH</button>
+        <button className="clear-button" onClick={() => this.clearSearch()}>Clear Search</button>
         </div>
       )
     } else {
       return (
         <>
-        <MovieSlider movies={ this.state.movies }/>
+        <MovieSlider
+        slideOne={this.state.slideOne}
+        slideTwo={this.state.slideTwo}
+        slideThree={this.state.slideThree}
+        displayMovieDetails={this.displayMovieDetails}
+        />
         <Movies movies={this.state.movies} />
         </>
       )

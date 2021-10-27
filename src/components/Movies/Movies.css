@@ -5,6 +5,10 @@
   margin-top: 25px;
 }
 
+.movies {
+  margin: 50px;
+}
+
 p {
-  font-family: 'Lora', serif;
+    font-family: 'Lora', serif;
 }
